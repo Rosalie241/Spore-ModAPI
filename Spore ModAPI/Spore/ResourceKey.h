@@ -36,15 +36,9 @@ struct ResourceKey {
 	ResourceKey();
 	ResourceKey(uint32_t nInstanceID, uint32_t nTypeID, uint32_t nGroupID);
 
-#ifndef SDK_TO_GHIDRA
 	uint32_t instanceID;
 	uint32_t typeID;
 	uint32_t groupID;
-#else
-	uint32_t instanceID;
-	TypeIDs::Names typeID;
-	GroupIDs::Names groupID;
-#endif
 
 	///
 	/// Creates a ResourceKey from the given text, which is in the format "groupID!instanceID.typeID". 

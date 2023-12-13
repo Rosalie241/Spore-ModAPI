@@ -204,9 +204,9 @@ def load_additional_addresses(file_path):
     
 
 def main():
-    include_path = r'E:\Eric\Spore ModAPI SDK\Spore ModAPI'
+    include_path = os.path.join(os.getcwd(), '..', 'Spore ModAPI')
     temp_path = 'temp.cpp'
-    folder_path = os.path.join(include_path, r'SourceCode\DLL')
+    folder_path = os.path.join(include_path, 'SourceCode', 'DLL')
     addresses_files = [name for name in os.listdir(folder_path) if name.startswith('Addresses') and name.endswith('.cpp')]
     includes = []
     
@@ -263,13 +263,15 @@ def main():
         
     tu = cindex.TranslationUnit.from_source(temp_path, args=[
         '-x', 'c++',
-        '-target', 'x86_64-PC-Win32-MSVC',
+        '-target', 'i686-pc-windows-msvc',
         '-m32',
         '-DSDK_TO_GHIDRA',
         '-fdeclspec',
         '-Wignored-attributes',
-        r'-IE:\Eric\Spore ModAPI SDK\Spore ModAPI',
-        r'-IE:\Eric\Spore ModAPI SDK\SDKtoGhidra\fake_includes'
+        '-I' + include_path,
+        '-I' + os.path.join(os.getcwd(), '..', 'SDKtoGhidra', 'fake_includes'),
+        '-I' + os.path.join(os.getcwd(), '..', 'EASTL-3.02.01', 'include'),
+        '-I' + os.path.join(os.getcwd(), '..', 'EASTL-3.02.01', 'test', 'packages', 'EABase', 'include', 'Common'),
         ])
 
     for diag in tu.diagnostics:
@@ -278,14 +280,14 @@ def main():
     print('Extracting SDK data...')
     xml_writer = GhidraToXmlWriter(addresses.name_to_address)
     function_processor = FunctionProcessor(xml_writer)
-    function_processor.exportable_paths.append(r'E:\Eric\Spore ModAPI SDK')
+    function_processor.exportable_paths.append(os.path.join(os.getcwd(), '..'))
     function_processor.process(tu.cursor)
     xml_writer.create_objecttype_enum()
     
     print(f'Added {len(xml_writer.added_address_names)} addresses. Remaining:')
-    for address_name in addresses.name_to_address.keys():
-        if address_name not in xml_writer.added_address_names:
-            print(address_name)
+    #for address_name in addresses.name_to_address.keys():
+    #    if address_name not in xml_writer.added_address_names:
+    #        print(address_name)
     
     print('Loading additional addresses...')
     with open('excluded_names.txt') as f:

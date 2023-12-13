@@ -202,8 +202,10 @@ namespace Simulator
 			/* 16210h */	Audio::AudioTrack mCellAmbAudioTrack;  // not initialized
 			/* 16214h */	char padding_16214[0x1625C - 0x16214];  // not initialized
 		};
+#ifndef SDK_TO_GHIDRA
 		ASSERT_SIZE(cCellGFX, 0x1625C);
-
+#endif
+		
 #ifdef SDK_TO_GHIDRA
 		cCellGFX* sCellGFX;
 #endif

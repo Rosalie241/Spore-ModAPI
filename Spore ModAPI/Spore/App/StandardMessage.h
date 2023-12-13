@@ -31,7 +31,7 @@ namespace App
 		: public DefaultRefCounted 
 	{
 	public:
-		inline RefCountedString(const char* str) : value(str) {}
+		inline RefCountedString(const char* str) : value(eastl::string(str)) {}
 
 		eastl::string value;
 	};
