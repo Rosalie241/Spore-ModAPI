@@ -36,6 +36,30 @@ jobs:
             dll\Release\SporeModAPI.disk.dll
             dll\Release\SporeModAPI.lib
 
+  update-sdktoghidra:
+    name: Update SDKtoGhidra
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Needed to count all the commits
+
+      - name: Set up MSVC cmd
+        uses: ilammy/msvc-dev-cmd@v1.12.1
+        with:
+          arch: x86
+    
+      - name: Install python-libclang
+        run: |
+          pip install libclang
+
+      - name: Update SDKtoGhidra xml
+        run: |
+          cd SDKtoGhidra
+          python .\extract.py
+          git diff
+
   deploy:
     name: Deploy ModAPI DLLs update
     needs: compile
