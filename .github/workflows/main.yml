@@ -1,8 +1,7 @@
 name: Deploy ModAPI Dlls & Update Documentation
-on:
-  push:
-    branches:
-      - master
+
+on: [push, pull_request]
+
 jobs:
   compile:
     name: Compile ModAPI core DLLS
