@@ -97,7 +97,7 @@
               eastl::string16&amp; dst,
               <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">uint32_<wbr />t</a> tableID = 0xFFFFFFFF) -&gt; <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a></span>
             </dt>
-            <dd>Used to obtain a path from a locale file, by default <code>0x19F76D11.locale</code>, similar to the one that would return <a href="class_app_1_1_thumbnail__c_import_export.html#a33afacd39a7dba86dc9feb69c50e7e01" class="m-doc">GetFolderPath()</a></dd>
+            <dd>Used to obtain a path from a locale file, by default <code>SaveDataFolders.locale</code>, similar to the one that would return <a href="class_app_1_1_thumbnail__c_import_export.html#a33afacd39a7dba86dc9feb69c50e7e01" class="m-doc">GetFolderPath()</a></dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#af5c0d8b27b53765e6dec7766df6d8868" class="m-doc">SavePNG</a>(</span><span class="m-doc-wrap"><a href="class_resource_1_1_resource_object.html" class="m-doc">Resource::<wbr />ResourceObject</a>* pResource,
               <a href="struct_render_ware_1_1_raster.html" class="m-doc">RenderWare::<wbr />Raster</a>* pImage,
@@ -105,7 +105,7 @@
               <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a> forceReplace = <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">false</a>,
               <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a> disableSteganography = <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">false</a>) -&gt; <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a></span>
             </dt>
-            <dd>Encodes the given resource into a <code>.png</code> image and saves it, both in the given package and in the &quot;My Spore Creations&quot; in the user Documents folder.</dd>
+            <dd>Encodes the given resource into a <code>.png</code> Model-in-Picture and saves it, both in the given package and in the &quot;My Spore Creations&quot; in the user Documents folder.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#abdabc4f2fd412063a4c83f1471badd4e" class="m-doc">ImportPNG</a>(</span><span class="m-doc-wrap"><a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">const</a> <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">char16_<wbr />t</a>* path,
               <a href="struct_resource_key.html" class="m-doc">ResourceKey</a>&amp; key) -&gt; <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a></span>
@@ -116,7 +116,7 @@
               <a href="struct_app_1_1_thumbnail_decoded_metadata.html" class="m-doc">ThumbnailDecodedMetadata</a>&amp; dstMetadata,
               <a href="_i_stream_8h.html#a0228333674e6e89ba6fda76a2c0dff36" class="m-doc">IStreamPtr</a>&amp; dstDataStream) -&gt; <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a></span>
             </dt>
-            <dd>Extracts information from a PNG file.</dd>
+            <dd>Extracts information from a Model-in-Picture PNG file.</dd>
             <dt>
               <span class="m-doc-wrap-bumper">auto <a href="#af4a9bce8bcb1becf6e5f00b244bcc81a" class="m-doc">SaveFilePaths</a>(</span><span class="m-doc-wrap">) -&gt; <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a></span>
             </dt>
@@ -156,16 +156,8 @@
               <a href="struct_app_1_1_png_encoder.html" class="m-doc">PngEncoder</a> <a href="#a902cfc13f545b2b8ec2dfe2121afb9cd" class="m-doc-self">mPngEncoder</a>
             </dt>
             <dd><span></span></dd>
-            <dt id="af0a67c8281c4e5321620b8d8ec75636c">
-              <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">int</a> <a href="#af0a67c8281c4e5321620b8d8ec75636c" class="m-doc-self">field_F8</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="aae492cc3e5161fe1310261223548654b">
-              <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">int</a> <a href="#aae492cc3e5161fe1310261223548654b" class="m-doc-self">field_FC</a>
-            </dt>
-            <dd><span></span></dd>
-            <dt id="a75d7bde8f1f22fa58061a5fcfe5728f8">
-              <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">int</a> <a href="#a75d7bde8f1f22fa58061a5fcfe5728f8" class="m-doc-self">field_100</a>
+            <dt id="a407fce7643a3dd1bce473aaa1531c27d">
+              <a href="struct_resource_key.html" class="m-doc">ResourceKey</a> <a href="#a407fce7643a3dd1bce473aaa1531c27d" class="m-doc-self">mCurImage</a>
             </dt>
             <dd><span></span></dd>
             <dt id="a8d0f26487757927325fa4589d34166bf">
@@ -239,7 +231,7 @@
               <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a> forceReplace = <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">false</a>,
               <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">bool</a> disableSteganography = <a href="_object_8h.html#a2e82adf9870bdb442cdcf2b3e01315b2" class="m-doc">false</a>)</span></span>
             </h3>
-            <p>Encodes the given resource into a <code>.png</code> image and saves it, both in the given package and in the &quot;My Spore Creations&quot; in the user Documents folder.</p>
+            <p>Encodes the given resource into a <code>.png</code> Model-in-Picture and saves it, both in the given package and in the &quot;My Spore Creations&quot; in the user Documents folder.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
@@ -309,7 +301,7 @@
               <a href="struct_app_1_1_thumbnail_decoded_metadata.html" class="m-doc">ThumbnailDecodedMetadata</a>&amp; dstMetadata,
               <a href="_i_stream_8h.html#a0228333674e6e89ba6fda76a2c0dff36" class="m-doc">IStreamPtr</a>&amp; dstDataStream)</span></span>
             </h3>
-            <p>Extracts information from a PNG file.</p>
+            <p>Extracts information from a Model-in-Picture PNG file.</p>
             <table class="m-table m-fullwidth m-flat">
               <thead>
                 <tr><th colspan="2">Parameters</th></tr>
